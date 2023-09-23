@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<h2>Here are the transactions:</h2>
+<ul>
+	{% for transaction in transactions %}
+	<li>
+		<p>Date: {{ transaction.date }}</p>
+		<p>Description: {{ transaction.description }}</p>
+		<p>Amount: {{ transaction.amount }}€</p>
+	</li>
+	{% endfor %}
+</ul>
+<a href="{% url 'add_transaction' %}">Add a new transaction</a>
+{% endblock content %}

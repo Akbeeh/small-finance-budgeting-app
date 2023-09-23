@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "finance_project"
+version = "0.1.0"
+description = ""
+authors = ["William M <Akbeeeh@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.5"
+pyspark = "^3.4.1"
+pre-commit = "^3.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
