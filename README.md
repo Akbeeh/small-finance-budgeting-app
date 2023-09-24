@@ -25,7 +25,7 @@ pip install poetry
 # `poetry init --no-interaction` to initialize a pre-existing project
 poetry new backend --name="finance_project"
 cd backend
-poetry add Django django-allauth pyspark
+poetry add Django pyspark
 # `poetry shell` to access the environment in the terminal
 ```
 
@@ -61,12 +61,28 @@ poetry run python manage.py migrate
 
 In this Python file `finance_app/forms.py`, we will create the forms that will be used to add data to the database.
 
+### 3. Create the login page with the Django authentication system
+
+Do not forget to add to the `INSTALLED_APPS` in the `settings.py` file the `allauth` and `allauth.account` apps.
+
+```python
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+LOGIN_REDIRECT_URL = "home"
+```
+
 ### Where I got a bit stuck / Interesting points
 
 - To link correctly the pages, I had to add the `finance_app` to the `INSTALLED_APPS` in the `settings.py` file.
 - For the templates, I had to add the `finance_app/templates` folder to the `DIRS` in the `TEMPLATES` in the `settings.py` file.
 - Be careful with the `urls.py` files. There is one in the project folder and one in the app folder. The one in the project folder is the main one, and the one in the app folder is the one that will be used to link the pages of the app.
 - Concerning the add of data, Django has the `ModelForm` class that allows us to create forms from models. The class `Meta` is used to specify the model and the fields that we want to use in the form (see more [here](https://docs.djangoproject.com/en/4.2/topics/db/models/#meta-options)).
+- Struggling some hours with Registration and Login. I had to look carefully at the use of `UserCreationForm` and `AuthentificationForm` (see more [here](https://docs.djangoproject.com/fr/4.2/topics/auth/default/)).
 
 ### Extra: Setup of pre-commit
 

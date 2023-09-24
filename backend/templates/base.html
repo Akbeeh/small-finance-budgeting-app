@@ -1,12 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Small Finance and Budgeting Application</title>
-  </head>
-  <body>
-    <h1>Small Finance and Budgeting Application</h1>
-    {% block content %}{% endblock %}
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+		<title>Small Finance and Budgeting Application</title>
+	</head>
+	<body>
+		<main>
+			<h1>Small Finance and Budgeting Application</h1>
+			{% block content %}{% endblock %}
+		</main>
+	</body>
 </html>
