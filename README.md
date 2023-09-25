@@ -54,7 +54,7 @@ touch finance_app/urls.py
 
 ```bash
 poetry run python manage.py makemigrations
-poetry run python manage.py migrate
+poetry run python manage.py migrate --run-syncdb
 ```
 
 ### 2. Create forms to able the user to add data

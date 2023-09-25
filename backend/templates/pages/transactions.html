@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<h2>Here are the transactions:</h2>
+<h3>Here are the transactions:</h3>
 <ul>
 	{% for transaction in transactions %}
 	<li>
@@ -9,5 +9,6 @@
 	</li>
 	{% endfor %}
 </ul>
-<a href="{% url 'add_transaction' %}">Add a new transaction</a>
+<p><a href="{% url 'add_transaction' %}">Add a new transaction</a></p>
+<p>If you want to go back home, click <a href="{% url 'home' %}">here</a>.</p>
 {% endblock content %}
